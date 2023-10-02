@@ -10,14 +10,17 @@ Deploy on: <a href="https://book-app-rust.vercel.app/">Vercel<a>
 
 ## Screenshots:
 
-- Homepage: search, categories, sortBy, List of books
-  ![Home-Page](/src/images/demo.home.png)
+Homepage: search, categories, sortBy, List of books
 
-- Bookpage: information about the book
-  ![Book-Page](/src/images/demo.book.png)
+![Home-Page](/src/images/demo.home.png)
 
-- Sorting: Sort by art, biography, computers, history, medical, poetry
-  ![Sorting](/src/images/demo.sort.png)
+Bookpage: information about the book
+
+![Book-Page](/src/images/demo.book.png)
+
+Sorting: Sort by art, biography, computers, history, medical, poetry
+
+![Sorting](/src/images/demo.sort.png)
 
 ## Stack:
 
