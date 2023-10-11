@@ -38,9 +38,11 @@ const Cards = () => {
           return <Card key={book.id} book={book} />;
         })}
         <div className='text-center mb-3'>
-          <button onClick={handleLoadMore} className='btn btn-outline-primary btn-lg'>
-            Load more
-          </button>
+          {books.length > 0 && (
+            <button onClick={handleLoadMore} className='btn btn-outline-primary btn-lg'>
+              Load more
+            </button>
+          )}
         </div>
       </div>
     </div>
