@@ -1,18 +1,22 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import { actions as searchActions } from '../../store/slices/searchSlice';
+import routes from '../../routes';
 
 const HeaderForm = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const value = formData.get('input').trim();
     dispatch(searchActions.setInput(value));
+    navigate(routes.bookList);
   };
 
   return (

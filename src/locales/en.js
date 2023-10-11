@@ -20,10 +20,13 @@ const enLocales = {
       poetry: 'poetry',
       relevance: 'relevance',
     },
-    erros: {},
+    errors: {
+      netWorkError: 'Something went wrong',
+    },
     messages: {
       pageNotFound: 'Oops! Page not found',
       booksFound: 'books found for your request',
+      booksNotFound: 'No books found for your request',
     },
     placeholders: {
       enterBook: 'Enter book title ...',

@@ -4,13 +4,14 @@ import { useDispatch } from 'react-redux';
 
 import routes from '../../routes';
 import { actions as booksActions } from '../../store/slices/booksSlice';
+import noImage from '../../images/no-image.svg';
 
 const Card = ({ book }) => {
   const { id, volumeInfo } = book;
   const title = volumeInfo.title;
   const authors = volumeInfo?.authors?.join(', ');
   const categories = volumeInfo.categories?.[0];
-  const imageSrc = volumeInfo.imageLinks?.thumbnail;
+  const imageSrc = volumeInfo.imageLinks?.thumbnail ? volumeInfo.imageLinks.thumbnail : noImage;
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -21,7 +22,7 @@ const Card = ({ book }) => {
   };
 
   return (
-    <div className='col-3 d-flex align-items-stretch'>
+    <div className='col-sm-6 col-md-4 col-lg-3 d-flex align-items-stretch'>
       <div
         onClick={handleClick}
         className='card w-100 shadow-sm mb-5 bg-light'

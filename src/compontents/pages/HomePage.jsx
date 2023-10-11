@@ -1,13 +1,7 @@
 import React from 'react';
 
-import Main from '../Main/Main';
-
 const RootPage = () => {
-  return (
-    <>
-      <Main />
-    </>
-  );
+  return <div className='container'></div>;
 };
 
 export default RootPage;

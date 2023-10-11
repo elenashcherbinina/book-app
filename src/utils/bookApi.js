@@ -1,11 +1,13 @@
 import routes from '../routes';
 
-const API_KEY = 'AIzaSyC1FuH5YL5uipNBGgSTHGsGMNUnqhc62Js'; // надо скрыть
-// &maxResults=30
+const API_KEY = process.env.REACT_APP_API_KEY;
+const START_INDEX = 0;
 
-const bookApi = (params) => {
-  const subject = params.category === 'all' ? '' : `+subject:${params.category}`;
-  return `${routes.baseUrl}/volumes?q=${params.input}${subject}&orderBy=${params.sortBy}&key=${API_KEY}`;
+const bookApi = (params, startIndex = START_INDEX) => {
+  const { category, input, sortBy } = params;
+  const subject = category === 'all' ? '' : `+subject:${category}`;
+
+  return `${routes.baseUrl}/volumes?q=${input}${subject}&orderBy=${sortBy}&startIndex=${startIndex}&maxResults=24&key=${API_KEY}`;
 };
 
 export default bookApi;

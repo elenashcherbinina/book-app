@@ -1,30 +1,25 @@
-import React, { useEffect } from 'react';
-import axios from 'axios';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 import Cards from './Cards';
-import bookApi from '../../utils/bookApi';
-import { actions as booksActions } from '../../store/slices/booksSlice';
 
 const Main = () => {
-  const params = useSelector((state) => state.search);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const { data } = await axios.get(bookApi(params));
-        dispatch(booksActions.addBooks(data.items));
-        dispatch(booksActions.addTotalItems(data.totalItems));
-      } catch (error) {
-        console.error(error);
-      }
-    }
-    fetchData();
-  }, [dispatch, params]);
+  const { t } = useTranslation();
+  const { loadingStatus, error } = useSelector((state) => state.books);
 
   return (
-    <main role='main'>
+    <main role='main' className='container'>
+      {loadingStatus === 'loading' && (
+        <div className='text-center m-3'>
+          <div className='spinner-border' role='status'></div>
+        </div>
+      )}
+      {error && (
+        <div className='alert alert-danger text-center m-3' role='alert'>
+          {t('errors.netWorkError')}
+        </div>
+      )}
       <Cards />
     </main>
   );

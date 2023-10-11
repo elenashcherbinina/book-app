@@ -9,6 +9,7 @@ import {
 import routes from './routes';
 import Layout from './compontents/pages/Layout';
 import HomePage from './compontents/pages/HomePage';
+import BookListPage from './compontents/pages/BookListPage';
 import BookPage from './compontents/pages/BookPage';
 import ErrorPage from './compontents/pages/ErrorPage';
 
@@ -17,6 +18,7 @@ const App = () => {
     createRoutesFromElements(
       <Route path={routes.rootPage} element={<Layout />} errorElement={<ErrorPage />}>
         <Route index element={<HomePage />} />
+        <Route path={routes.bookList} element={<BookListPage />} />
         <Route path={`${routes.bookPage}/:id`} element={<BookPage />} />
       </Route>,
     ),
