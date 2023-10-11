@@ -13,7 +13,6 @@ const Cards = () => {
   const { startIndex } = useSelector((state) => state.books);
   const { books, total } = useSelector((state) => state.books);
   const paginationStep = books.length;
-  console.log('books', books);
 
   const handleLoadMore = () => {
     const newStartIndex = startIndex + paginationStep;
@@ -35,10 +34,9 @@ const Cards = () => {
         )}
       </div>
       <div className='row'>
-        {books &&
-          books.map((book) => {
-            return <Card key={book.id} book={book} />;
-          })}
+        {books.map((book) => {
+          return <Card key={book.id} book={book} />;
+        })}
         <div className='text-center mb-3'>
           <button onClick={handleLoadMore} className='btn btn-outline-primary btn-lg'>
             Load more

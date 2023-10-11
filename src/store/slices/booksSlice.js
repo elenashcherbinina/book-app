@@ -43,7 +43,7 @@ const booksSlice = createSlice({
       .addCase(fetchBooks.fulfilled, (state, action) => {
         state.books = unique(action.payload.items);
         state.total = action.payload.totalItems;
-        state.loadingStatus = 'idle';
+        state.loadingStatus = 'success';
         state.error = null;
       })
       .addCase(fetchBooks.rejected, (state, action) => {
@@ -56,7 +56,7 @@ const booksSlice = createSlice({
       })
       .addCase(fetchMoreBooks.fulfilled, (state, action) => {
         state.books = unique([...state.books, ...action.payload.items]);
-        state.loadingStatus = 'idle';
+        state.loadingStatus = 'success';
         state.error = null;
       })
       .addCase(fetchMoreBooks.rejected, (state, action) => {
