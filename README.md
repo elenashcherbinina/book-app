@@ -30,3 +30,21 @@ Sorting: Sort by art, biography, computers, history, medical, poetry
 ![image](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
 ![image](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
 ![image](https://img.shields.io/badge/axios-671ddf?&style=for-the-badge&logo=axios&logoColor=white)
+
+## Install via Docker:
+
+Clone the repository:
+
+```
+git@github.com:elenashcherbinina/book-app.git
+```
+
+Build and run:
+
+```
+docker-compose build
+```
+
+```
+docker-compose up -d
+```
