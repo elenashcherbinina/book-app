@@ -6,16 +6,17 @@ import Card from './Card';
 import { actions as booksActions } from '../../store/slices/booksSlice';
 import { fetchMoreBooks } from '../../store/slices/booksSlice';
 
+const PAGINATION_STEP = 30;
+
 const Cards = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const params = useSelector((state) => state.search);
   const { startIndex } = useSelector((state) => state.books);
   const { books, total, loadingStatus } = useSelector((state) => state.books);
-  const paginationStep = books.length;
 
   const handleLoadMore = () => {
-    const newStartIndex = startIndex + paginationStep;
+    const newStartIndex = startIndex + PAGINATION_STEP;
     dispatch(booksActions.setStartIndex(newStartIndex));
     dispatch(fetchMoreBooks(params));
   };
