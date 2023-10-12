@@ -20,7 +20,7 @@ const Main = () => {
           {t('errors.netWorkError')}
         </div>
       )}
-      {loadingStatus === 'success' && <Cards />}
+      <Cards />
     </main>
   );
 };

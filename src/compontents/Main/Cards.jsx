@@ -11,7 +11,7 @@ const Cards = () => {
   const dispatch = useDispatch();
   const params = useSelector((state) => state.search);
   const { startIndex } = useSelector((state) => state.books);
-  const { books, total } = useSelector((state) => state.books);
+  const { books, total, loadingStatus } = useSelector((state) => state.books);
   const paginationStep = books.length;
 
   const handleLoadMore = () => {
@@ -23,14 +23,16 @@ const Cards = () => {
   return (
     <div className='container'>
       <div className='d-flex mt-3 mb-3 justify-content-center'>
-        {books.length > 0 ? (
+        {books.length > 0 && loadingStatus === 'success' ? (
           <h5>
             {total} {t('messages.booksFound')}
           </h5>
         ) : (
-          <h5>
-            {total} {t('messages.booksNotFound')}
-          </h5>
+          loadingStatus === 'success' && (
+            <h5>
+              {total} {t('messages.booksNotFound')}
+            </h5>
+          )
         )}
       </div>
       <div className='row'>
